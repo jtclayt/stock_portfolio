@@ -18,7 +18,19 @@ services:
             python manage.py migrate &&
             python manage.py runserver 0.0.0.0:8000"
 
-  # app:
+  app:
+    build:
+      context: ./app
+      dockerfile: ../dockerfiles/app.dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    depends_on:
+      - api
 
   mysql:
     image: mysql:8
@@ -26,4 +38,10 @@ services:
       - ./env/mysql.env
     command: --default-authentication-plugin=mysql_native_password
 
-  # npm:
+  npm:
+    build:
+      context: ./app
+      dockerfile: ../dockerfiles/npm.dockerfile
+    volumes:
+      - ./app:/app
+      - /app/node_modules
