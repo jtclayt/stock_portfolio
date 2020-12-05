@@ -15,6 +15,8 @@ to buy in each stock to meet distribution
 ## To use
 1. Clone the repo
 2. Will need docker and docker-compose installed
-3. Run: docker-compose up app
-4. React app will be on http://localhost:3000 and Django api will be on
+3. Rename files in env folder to just api.env and mysql.env, feel free to add
+your own passwords and secret key
+4. Run: docker-compose up app
+5. React app will be on http://localhost:3000 and Django api will be on
 http://localhost:8000
