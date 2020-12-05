@@ -8,13 +8,13 @@ function App() {
 
   useEffect(() => {
     axios.get(API_URL)
-      .then(res => console.log(res))
+      .then(res => setMessage(res.data))
       .catch(err => console.log(err));
   })
 
   return (
     <div className="App">
-      <p>{ message }</p>
+      <h1>{ message }</h1>
     </div>
   );
 }
