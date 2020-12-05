@@ -1,12 +1,13 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { API_URL } from './constants';
 
 function App() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    fetch('api')
+    axios.get(API_URL)
       .then(res => console.log(res))
       .catch(err => console.log(err));
   })
