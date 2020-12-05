@@ -58,6 +58,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Other
-env
+*.env
 venv
 .vscode
