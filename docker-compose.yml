@@ -45,3 +45,14 @@ services:
     volumes:
       - ./app:/app
       - /app/node_modules
+    entrypoint: [ "npm" ]
+
+  django:
+    build:
+      context: ./api
+      dockerfile: ../dockerfiles/api.dockerfile
+    env_file:
+      - ./env/api.env
+    volumes:
+      - ./api:/app
+    entrypoint: [ "python", "manage.py" ]
