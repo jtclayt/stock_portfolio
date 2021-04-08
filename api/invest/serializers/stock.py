@@ -8,7 +8,7 @@ class StockSerializer(serializers.HyperlinkedModelSerializer):
         many=True,
         queryset=Transaction.objects.all()
     )
-    url = serializers.HyperlinkedIdentityField(view_name='app:stock-detail')
+    url = serializers.HyperlinkedIdentityField(view_name='invest:stock-detail')
 
     class Meta:
         model = Stock
