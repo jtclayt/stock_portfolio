@@ -33,6 +33,15 @@ class Income {
       + this.annualAmount / MONTHS_IN_YEAR
       + this.hourlyAmount * this.averageHoursWeek * WEEKS_IN_YEAR / MONTHS_IN_YEAR;
   }
+
+  getAnnualTotal() {
+    const MONTHS_IN_YEAR = 12;
+    const WEEKS_IN_YEAR = 52;
+
+    return this.annualAmount
+      + this.monthlyAmount * MONTHS_IN_YEAR
+      + this.hourlyAmount * this.averageHoursWeek * WEEKS_IN_YEAR;
+  }
 }
 
 export default Income;

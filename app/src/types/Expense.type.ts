@@ -23,6 +23,11 @@ class Expense {
     const MONTHS_IN_YEAR = 12;
     return this.monthlyAmount + this.annualAmount / MONTHS_IN_YEAR;
   }
+
+  getAnnualTotal() {
+    const MONTHS_IN_YEAR = 12;
+    return this.monthlyAmount * MONTHS_IN_YEAR + this.annualAmount;
+  }
 }
 
 export default Expense;

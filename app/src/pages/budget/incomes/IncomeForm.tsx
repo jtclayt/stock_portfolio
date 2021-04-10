@@ -23,6 +23,8 @@ const IncomeForm : React.FC<IncomeFormProps> = ({ addIncome }) => {
       "is_taxable": event.currentTarget["is_taxable"].checked
     };
 
+    event.currentTarget.reset();
+
     axios.post(INCOME_BASE_URL, data)
       .then(res => {
         addIncome(new Income(res.data as IncomeData));
