@@ -1,4 +1,4 @@
-import IncomeData from "./IncomeData.type";
+import IncomeData from "../types/IncomeData.type";
 
 class Income {
   id: number;

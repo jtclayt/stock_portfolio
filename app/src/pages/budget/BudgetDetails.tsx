@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { Form, FormControl, InputGroup, Table } from "react-bootstrap";
 
-import Income from "../../types/Income.type";
-import Expense from "../../types/Expense.type";
+import Income from "../../models/Income.model";
+import Expense from "../../models/Expense.model";
 import TaxRateCalculator from "../../helpers/TaxRateCalculator";
 import GetTimePeriods from "../../helpers/GetTimePeriods";
 

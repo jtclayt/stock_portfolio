@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 
 import { API_URL } from "../../constants";
-import Stock from "../../types/Stock.type";
+import Stock from "../../models/Stock.model";
 import StockData from "../../types/StockData.type";
 import GetResponse from "../../types/GetResponse.type";
 

@@ -1,9 +1,9 @@
 import axios from "axios";
 import React from "react";
-import { Button, Col, Form, FormControl, InputGroup, Row } from "react-bootstrap";
+import { Button, Form, FormControl, InputGroup, Row } from "react-bootstrap";
 
 import { EXPENSE_BASE_URL } from "../../../constants";
-import Expense from "../../../types/Expense.type";
+import Expense from "../../../models/Expense.model";
 import ExpenseData from "../../../types/ExpenseData.type";
 
 interface ExpenseFormProps {

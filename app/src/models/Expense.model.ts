@@ -1,4 +1,4 @@
-import ExpenseData from "./ExpenseData.type";
+import ExpenseData from "../types/ExpenseData.type";
 
 class Expense {
   id: number;

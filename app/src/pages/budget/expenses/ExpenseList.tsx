@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Button, Table } from "react-bootstrap";
 import axios from "axios";
 
-import Expense from "../../../types/Expense.type";
+import Expense from "../../../models/Expense.model";
 
 interface ExpenseListProps {
   expenses: Expense[];

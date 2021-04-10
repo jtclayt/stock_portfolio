@@ -3,7 +3,7 @@ import React from "react";
 import { Button, Col, Form, FormControl, InputGroup, Row } from "react-bootstrap";
 
 import { INCOME_BASE_URL } from "../../../constants";
-import Income from "../../../types/Income.type";
+import Income from "../../../models/Income.model";
 import IncomeData from "../../../types/IncomeData.type";
 
 interface IncomeFormProps {

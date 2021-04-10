@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Button, Table } from "react-bootstrap";
 import axios from "axios";
 
-import Income from "../../../types/Income.type";
+import Income from "../../../models/Income.model";
 
 interface IncomeListProps {
   incomes: Income[];

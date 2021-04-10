@@ -1,4 +1,4 @@
-import StockData from "./StockData.type";
+import StockData from "../types/StockData.type";
 
 class Stock {
   id: number;

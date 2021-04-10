@@ -3,11 +3,11 @@ import { Tabs, Tab } from "react-bootstrap";
 import axios from "axios";
 
 import BudgetDetails from "./BudgetDetails";
-import Income from "../../types/Income.type";
+import Income from "../../models/Income.model";
 import IncomeList from "./incomes/IncomeList";
 import IncomeForm from "./incomes/IncomeForm";
 import IncomeData from "../../types/IncomeData.type";
-import Expense from "../../types/Expense.type";
+import Expense from "../../models/Expense.model";
 import ExpenseList from "./expenses/ExpenseList";
 import ExpenseForm from "./expenses/ExpenseForm";
 import ExpenseData from "../../types/ExpenseData.type";
