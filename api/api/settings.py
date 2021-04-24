@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
+    'user',
     'invest',
     'budget',
 ]
@@ -86,7 +88,10 @@ DATABASES = {
         'USER': os.environ['DB_USER'],
         'PASSWORD': os.environ['DB_PASSWORD'],
         'HOST': os.environ['DB_HOST'],
-        'PORT': 3306
+        'PORT': 3306,
+        'TEST': {
+            'NAME': 'test_stocks'
+        }
     }
 }
 
