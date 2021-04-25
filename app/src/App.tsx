@@ -9,9 +9,17 @@ import NavBar from "./components/NavBar/NavBar";
 import User from "./models/User.model";
 import { getUserSession } from "./auth/User";
 
+/**
+ * The main app component for rendering UI.
+ * @returns
+ */
 function App() {
   const [user, setUser] = useState(getUserSession());
 
+  /**
+   * Update the currently logged in user.
+   * @param user Logged in user or null if user logged out.
+   */
   const updateUser = (user: User | null) => {
     setUser(user);
   }

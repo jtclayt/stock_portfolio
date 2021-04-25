@@ -15,6 +15,11 @@ interface AppRouterProps {
   updateUser: (user: User) => void;
 }
 
+/**
+ * Router controlling site navigation.
+ * @param props Needed data for router to control navigation flow.
+ * @returns The router with pages that can be accessed.
+ */
 const AppRouter : React.FC<AppRouterProps> = ({ user, updateUser }) => {
   const authToken = getAuthToken();
   const history = useHistory();

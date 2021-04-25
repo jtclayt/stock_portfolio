@@ -16,11 +16,20 @@ interface LoginPageProps {
   updateUser: (user: User) => void;
 }
 
+/**
+ * This page controls logic for user login and registration.
+ * @param props Input props for the login component.
+ * @returns The login page component.
+ */
 const LoginPage : React.FC<LoginPageProps> = ({ updateUser }) => {
   const history = useHistory();
   const [loginError, setLoginError] = useState("");
   const [tabKey, setTabKey] = useState("login");
 
+  /**
+   * Make login request for an auth token from API.
+   * @param data User credentials to login.
+   */
   const handleLogin = (data: {username: string, password: string}) => {
     axios.post(`${USER_BASE_URL}token`, data)
       .then(res => {
@@ -33,15 +42,19 @@ const LoginPage : React.FC<LoginPageProps> = ({ updateUser }) => {
             updateUser(new User(res.data as UserData));
             history.push("/");
           })
-          .catch(err => {
+          .catch(() => {
             setLoginError("Could not retrieve token, please try again");
-          })
+          });
       })
-      .catch(err => {
+      .catch(() => {
         setLoginError("Invalid login, please try again");
-      })
+      });
   }
 
+  /**
+   * Make a reauest to API to register a new user.
+   * @param data User data to register.
+   */
   const handleRegister = (data: {username: string, password: string}) => {
     axios.post(`${USER_BASE_URL}create`, data)
       .then(() => {
@@ -49,7 +62,7 @@ const LoginPage : React.FC<LoginPageProps> = ({ updateUser }) => {
       })
       .catch(() => {
         setLoginError("Username is taken, please try a different one");
-      })
+      });
   }
 
   return (

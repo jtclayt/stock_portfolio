@@ -5,12 +5,17 @@ class User {
   firstName: string;
   lastName: string;
 
+  /** Class constructor */
   constructor(userData: UserData) {
     this.username = userData.username;
     this.firstName = userData.first_name;
     this.lastName = userData.last_name;
   }
 
+  /**
+   * Controls logic for displaying a users name.
+   * @returns String for identifying user.
+   */
   displayName(): string {
     if (this.firstName || this.lastName) {
       let name = "";

@@ -10,7 +10,16 @@ interface ExpenseFormProps {
   addExpense: (newIncome: Expense) => void;
 }
 
+/**
+ * Form for adding a new expense to the list.
+ * @param props Data for adding a new expense.
+ * @returns Form for requesting a new event.
+ */
 const ExpenseForm : React.FC<ExpenseFormProps> = ({ addExpense }) => {
+  /**
+   * Submit the data from the form for a new expense.
+   * @param event Submit event from expense form.
+   */
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>)  => {
     event.preventDefault();
 

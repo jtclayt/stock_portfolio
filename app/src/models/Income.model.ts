@@ -12,6 +12,7 @@ class Income {
   createdAt: Date;
   updatedAt: Date;
 
+  /** Class constructor */
   constructor(data: IncomeData) {
     this.id = data.id;
     this.description = data.description;
@@ -25,6 +26,10 @@ class Income {
     this.updatedAt = new Date(data.updated_at);
   }
 
+  /**
+   * Get the monthly total of income.
+   * @returns The monthly total.
+   */
   getMonthlyTotal(): number {
     const MONTHS_IN_YEAR = 12;
     const WEEKS_IN_YEAR = 52;
@@ -34,6 +39,10 @@ class Income {
       + this.hourlyAmount * this.averageHoursWeek * WEEKS_IN_YEAR / MONTHS_IN_YEAR;
   }
 
+  /**
+   * Get the annual total for income.
+   * @returns The annual total.
+   */
   getAnnualTotal(): number {
     const MONTHS_IN_YEAR = 12;
     const WEEKS_IN_YEAR = 52;

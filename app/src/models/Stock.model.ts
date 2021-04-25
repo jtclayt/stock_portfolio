@@ -13,6 +13,7 @@ class Stock {
   createdAt: Date;
   updatedAt: Date;
 
+  /** Class constructor */
   constructor(data: StockData) {
     this.id = data.id;
     this.url = data.url;

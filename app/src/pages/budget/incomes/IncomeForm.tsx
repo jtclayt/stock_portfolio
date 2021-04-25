@@ -10,7 +10,16 @@ interface IncomeFormProps {
   addIncome: (newIncome: Income) => void;
 }
 
+/**
+ * Form for adding a new income.
+ * @param props Data for adding new incomes.
+ * @returns Form for adding a new income.
+ */
 const IncomeForm : React.FC<IncomeFormProps> = ({ addIncome }) => {
+  /**
+   * Submit form the make a request for a new income.
+   * @param event Form submit event with data for new income.
+   */
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>)  => {
     event.preventDefault();
 

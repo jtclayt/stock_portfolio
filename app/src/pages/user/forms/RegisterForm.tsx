@@ -5,6 +5,11 @@ interface RegisterFormProps {
   handleRegister: (data: {username: string, password: string}) => void;
 }
 
+/**
+ * Controls the display structure for the registration form for a new user.
+ * @param props Contains data for making registration request.
+ * @returns The registration form component.
+ */
 const RegisterForm : React.FC<RegisterFormProps> = ({ handleRegister }) => {
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
@@ -14,14 +19,26 @@ const RegisterForm : React.FC<RegisterFormProps> = ({ handleRegister }) => {
     setIsPasswordValid(password === confirm);
   }, [password, confirm]);
 
+  /**
+   * Update the password for validation.
+   * @param event The input event changing password value.
+   */
   const updatePassword = (event: any) => {
     setPassword(event.currentTarget.value);
   }
 
+  /**
+   * Update the confirm password for validation.
+   * @param event The input event changing confirm password value.
+   */
   const updateConfirm = (event: any) => {
     setConfirm(event.currentTarget.value);
   }
 
+  /**
+   * Handle submitting the registration form.
+   * @param event The event submitting the registration form.
+   */
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 

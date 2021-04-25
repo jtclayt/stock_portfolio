@@ -5,7 +5,16 @@ interface LoginFormProps {
   handleLogin: (data: {username: string, password: string}) => void;
 }
 
+/**
+ * Controls the display structure for the login form for a returning user.
+ * @param props Contains data for making login request.
+ * @returns The login form component.
+ */
 const LoginForm : React.FC<LoginFormProps> = ({ handleLogin }) => {
+  /**
+   * Submit the form to create login request.
+   * @param event Submit event for the login server.
+   */
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 

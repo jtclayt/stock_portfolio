@@ -15,6 +15,11 @@ import GetResponse from "../../types/GetResponse.type";
 import { INCOME_BASE_URL } from "../../constants";
 import { EXPENSE_BASE_URL } from "../../constants";
 
+/**
+ * Render the budget page for allowing a user to add expenses and incomes
+ * to a budget and view related details.
+ * @returns Component for rendering budget page.
+ */
 const BudgetPage : React.FC = () => {
   const [incomes, setIncomes] = useState<Income[]>([]);
   const [expenses, setExpenses] = useState<Expense[]>([]);

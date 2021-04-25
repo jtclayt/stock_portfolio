@@ -2,7 +2,7 @@
  * Calculator for finding the effective tax rate given total taxable income.
  * Assumes married joint filing US taxes.
  * @param taxableIncome - Gross income.
- * returns The effective tax rate.
+ * @returns The effective tax rate.
  */
 const TaxRateCalculator = (taxableIncome: number) => {
   const rates = [0.1, 0.12, 0.22, 0.24, 0.32, 0.35, 0.37];

@@ -9,7 +9,16 @@ interface ExpenseListProps {
   removeExpenseById: (id: number) => void;
 }
 
+/**
+ * List for displaying current expenses.
+ * @param props Data for handling changes to expenses.
+ * @returns The list of expenses.
+ */
 const ExpenseList : React.FC<ExpenseListProps> = ({ expenses, removeExpenseById }) => {
+  /**
+   * Make a delete request to API for given expense.
+   * @param expense The expense to be deleted.
+   */
   const handleDelete = (expense: Expense) => {
     axios.delete(expense.url)
       .then(() => removeExpenseById(expense.id))

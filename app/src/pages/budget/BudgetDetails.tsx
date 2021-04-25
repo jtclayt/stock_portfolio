@@ -11,6 +11,11 @@ interface BudgetDetailsProps {
   expenses: Expense[];
 }
 
+/**
+ * Page for showing budget details of income and expenses.
+ * @param props Required data for displaying details.
+ * @returns Component for rendering overall budget details.
+ */
 const BudgetDetails: React.FC<BudgetDetailsProps> = ({ incomes, expenses }) => {
   let taxableIncome = 0;
   let untaxableIncome = 0;

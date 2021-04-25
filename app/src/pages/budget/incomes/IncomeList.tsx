@@ -9,7 +9,16 @@ interface IncomeListProps {
   removeIncomeById: (id: number) => void;
 }
 
+/**
+ * List for displaying incomes for a user.
+ * @param props Data for displaying incomes to the list.
+ * @returns The list of incomes.
+ */
 const IncomeList : React.FC<IncomeListProps> = ({ incomes, removeIncomeById }) => {
+  /**
+   * Delete an expense from the list.
+   * @param income The income to be deleted.
+   */
   const handleDelete = (income: Income) => {
     axios.delete(income.url)
       .then(() => removeIncomeById(income.id))

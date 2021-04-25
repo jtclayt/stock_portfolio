@@ -9,7 +9,13 @@ interface NavBarProps {
   updateUser: (user: User | null) => void;
 }
 
+/**
+ * Render the nav bar for accessing pages on site.
+ * @param props User props for displaying on nav panel.
+ * @returns The site nav bar component.
+ */
 const NavBar : React.FC<NavBarProps> = ({ user, updateUser }) => {
+  /** Logout the currently logged in user. */
   const handleLogout = () => {
     sessionStorage.clear();
     updateUser(null);
