@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 
-const PortfolioPage : React.FC = () => {
+const LoginPage : React.FC = () => {
   return (
     <Fragment>
       <header>
-        <h1>Portfolio Page!</h1>
+        <h1>Profile!</h1>
       </header>
     </Fragment>
   );
 }
 
-export default PortfolioPage;
+export default LoginPage;

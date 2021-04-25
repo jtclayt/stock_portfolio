@@ -25,7 +25,7 @@ class Income {
     this.updatedAt = new Date(data.updated_at);
   }
 
-  getMonthlyTotal() {
+  getMonthlyTotal(): number {
     const MONTHS_IN_YEAR = 12;
     const WEEKS_IN_YEAR = 52;
 
@@ -34,7 +34,7 @@ class Income {
       + this.hourlyAmount * this.averageHoursWeek * WEEKS_IN_YEAR / MONTHS_IN_YEAR;
   }
 
-  getAnnualTotal() {
+  getAnnualTotal(): number {
     const MONTHS_IN_YEAR = 12;
     const WEEKS_IN_YEAR = 52;
 

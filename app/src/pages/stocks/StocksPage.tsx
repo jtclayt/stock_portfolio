@@ -8,7 +8,9 @@ import GetResponse from "../../types/GetResponse.type";
 
 const StocksPage : React.FC = () => {
   const [stocks, setStocks] = useState<Stock[]>([]);
-  const STOCKS_BASE_URL = `${API_URL}/invest/stocks`
+  const STOCKS_BASE_URL = `${API_URL}/invest/stocks`;
+
+  console.log(stocks);
 
   useEffect(() => {
     axios.get(STOCKS_BASE_URL)
@@ -19,7 +21,9 @@ const StocksPage : React.FC = () => {
 
   return (
     <Fragment>
-      <header>Stocks!</header>
+      <header>
+        <h1>Stocks Page!</h1>
+      </header>
     </Fragment>
   );
 }

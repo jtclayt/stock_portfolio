@@ -10,3 +10,11 @@
 .NavBar .link {
   font-size: 1.4rem;
 }
+
+.Navbar.navbar {
+  width: 1000px;
+}
+
+.Navbar #site-nav #profile {
+  align-self: flex-end;
+}

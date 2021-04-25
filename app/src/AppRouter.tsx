@@ -1,19 +1,41 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Switch, Route, useHistory } from "react-router-dom";
 
 import BudgetPage from "./pages/budget/BudgetPage";
+import HomePage from "./pages/home/HomePage";
+import { getAuthToken } from "./auth/AuthToken";
+import LoginPage from "./pages/user/LoginPage";
 import PortfolioPage from "./pages/portfolio/PortfolioPage";
+import ProfilePage from "./pages/user/ProfilePage";
 import StocksPage from "./pages/stocks/StocksPage";
+import User from "./models/User.model";
 
-const AppRouter : React.FC = () => {
+interface AppRouterProps {
+  user: User | null;
+  updateUser: (user: User) => void;
+}
+
+const AppRouter : React.FC<AppRouterProps> = ({ user, updateUser }) => {
+  const authToken = getAuthToken();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!authToken) {
+      history.push("/login");
+    }
+  }, [authToken, history, user])
+
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={PortfolioPage} />
-        <Route path="/stocks" component={StocksPage} />
-        <Route path="/budget" component={BudgetPage} />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/profile" component={ProfilePage} />
+      <Route path="/portfolio" component={PortfolioPage} />
+      <Route path="/stocks" component={StocksPage} />
+      <Route path="/budget" component={BudgetPage} />
+      <Route path="/login">
+        <LoginPage updateUser={ updateUser } />
+      </Route>
+    </Switch>
   );
 }
 

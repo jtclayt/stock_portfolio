@@ -1,6 +1,6 @@
 import axios from "axios";
-import React from "react";
 import { Button, Col, Form, FormControl, InputGroup, Row } from "react-bootstrap";
+import React from "react";
 
 import { INCOME_BASE_URL } from "../../../constants";
 import Income from "../../../models/Income.model";
@@ -29,7 +29,9 @@ const IncomeForm : React.FC<IncomeFormProps> = ({ addIncome }) => {
       .then(res => {
         addIncome(new Income(res.data as IncomeData));
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.error(err)
+      });
   }
 
   return (

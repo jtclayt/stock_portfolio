@@ -19,12 +19,12 @@ class Expense {
     this.updatedAt = new Date(data.updated_at);
   }
 
-  getMonthlyTotal() {
+  getMonthlyTotal(): number {
     const MONTHS_IN_YEAR = 12;
     return this.monthlyAmount + this.annualAmount / MONTHS_IN_YEAR;
   }
 
-  getAnnualTotal() {
+  getAnnualTotal(): number {
     const MONTHS_IN_YEAR = 12;
     return this.monthlyAmount * MONTHS_IN_YEAR + this.annualAmount;
   }
