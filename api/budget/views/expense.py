@@ -1,11 +1,9 @@
-from rest_framework import viewsets
+from shared.views.base import BaseViewSet
 
 from ..models.expense import Expense
 from ..serializers.expense import ExpenseSerializer
 
-class ExpenseViewSet(viewsets.ModelViewSet):
+class ExpenseViewSet(BaseViewSet):
     '''Default viewsets for expenses'''
+    queryset = Expense.objects.all()
     serializer_class = ExpenseSerializer
-
-    def get_queryset(self):
-        return Expense.objects.all()

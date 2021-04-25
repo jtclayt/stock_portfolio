@@ -1,11 +1,9 @@
-from rest_framework import viewsets
+from shared.views.base import BaseViewSet
 
 from ..models.income import Income
 from ..serializers.income import IncomeSerializer
 
-class IncomeViewSet(viewsets.ModelViewSet):
+class IncomeViewSet(BaseViewSet):
     '''Default viewsets for stocks'''
+    queryset = Income.objects.all()
     serializer_class = IncomeSerializer
-
-    def get_queryset(self):
-        return Income.objects.all()
