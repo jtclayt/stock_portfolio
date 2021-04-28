@@ -23,7 +23,7 @@ const ExpenseList : React.FC<ExpenseListProps> = ({ expenses, removeExpenseById 
     axios.delete(expense.url)
       .then(() => removeExpenseById(expense.id))
       .catch(err => console.log(err));
-  }
+  };
 
   return (
     <Fragment>
@@ -58,6 +58,6 @@ const ExpenseList : React.FC<ExpenseListProps> = ({ expenses, removeExpenseById 
       </Table>
     </Fragment>
   );
-}
+};
 
 export default ExpenseList;

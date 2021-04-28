@@ -1,5 +1,6 @@
 import ExpenseData from "../types/ExpenseData.type";
 
+/** Model for expenses. */
 class Expense {
   id: number;
   description: string;

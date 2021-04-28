@@ -8,6 +8,6 @@ const PortfolioPage : React.FC = () => {
       </header>
     </Fragment>
   );
-}
+};
 
 export default PortfolioPage;

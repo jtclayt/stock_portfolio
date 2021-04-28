@@ -19,7 +19,7 @@ const NavBar : React.FC<NavBarProps> = ({ user, updateUser }) => {
   const handleLogout = () => {
     sessionStorage.clear();
     updateUser(null);
-  }
+  };
 
   return (
     <Navbar className="NavBar justify-content-between" bg="dark" variant="dark">
@@ -51,6 +51,6 @@ const NavBar : React.FC<NavBarProps> = ({ user, updateUser }) => {
         }
     </Navbar>
   );
-}
+};
 
 export default NavBar;

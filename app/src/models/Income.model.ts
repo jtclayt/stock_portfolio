@@ -1,5 +1,6 @@
 import IncomeData from "../types/IncomeData.type";
 
+/** Income data model in API. */
 class Income {
   id: number;
   description: string;

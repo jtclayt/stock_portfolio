@@ -20,7 +20,7 @@ const IncomeForm : React.FC<IncomeFormProps> = ({ addIncome }) => {
    * Submit form the make a request for a new income.
    * @param event Form submit event with data for new income.
    */
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>)  => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const data = {
@@ -39,9 +39,9 @@ const IncomeForm : React.FC<IncomeFormProps> = ({ addIncome }) => {
         addIncome(new Income(res.data as IncomeData));
       })
       .catch(err => {
-        console.error(err)
+        console.error(err);
       });
-  }
+  };
 
   return (
     <Form className="col-md-8 mx-auto mb-5" onSubmit={handleSubmit}>
@@ -131,6 +131,6 @@ const IncomeForm : React.FC<IncomeFormProps> = ({ addIncome }) => {
       </Row>
     </Form>
   );
-}
+};
 
 export default IncomeForm;

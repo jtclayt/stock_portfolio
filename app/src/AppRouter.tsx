@@ -28,7 +28,7 @@ const AppRouter : React.FC<AppRouterProps> = ({ user, updateUser }) => {
     if (!authToken) {
       history.push("/login");
     }
-  }, [authToken, history, user])
+  }, [authToken, history, user]);
 
   return (
     <Switch>
@@ -42,6 +42,6 @@ const AppRouter : React.FC<AppRouterProps> = ({ user, updateUser }) => {
       </Route>
     </Switch>
   );
-}
+};
 
 export default AppRouter;

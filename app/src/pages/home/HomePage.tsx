@@ -12,6 +12,6 @@ const HomePage : React.FC = () => {
       </header>
     </Fragment>
   );
-}
+};
 
 export default HomePage;

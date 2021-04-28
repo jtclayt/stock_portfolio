@@ -3,8 +3,8 @@ import { Form, FormControl, InputGroup, Table } from "react-bootstrap";
 
 import Income from "../../models/Income.model";
 import Expense from "../../models/Expense.model";
-import TaxRateCalculator from "../../helpers/TaxRateCalculator";
-import GetTimePeriods from "../../helpers/GetTimePeriods";
+import taxRateCalculator from "../../helpers/taxRateCalculator";
+import getTimePeriods from "../../helpers/getTimePeriods";
 
 interface BudgetDetailsProps {
   incomes: Income[];
@@ -27,7 +27,7 @@ const BudgetDetails: React.FC<BudgetDetailsProps> = ({ incomes, expenses }) => {
   const currencyOptions = {
     style: "currency",
     currency: "USD"
-  }
+  };
 
   incomes.forEach(income => {
     if (income.isTaxable) {
@@ -41,20 +41,20 @@ const BudgetDetails: React.FC<BudgetDetailsProps> = ({ incomes, expenses }) => {
     return acc += expense.getAnnualTotal();
   }, 0);
 
-  effectiveTaxRate = TaxRateCalculator(taxableIncome);
+  effectiveTaxRate = taxRateCalculator(taxableIncome);
   taxOwed = taxableIncome * effectiveTaxRate;
   netTaxableIncome = taxableIncome - taxOwed;
 
-  const [semiMonthlyIncome, monthlyIncome, annualIncome] = GetTimePeriods(
+  const [semiMonthlyIncome, monthlyIncome, annualIncome] = getTimePeriods(
     netTaxableIncome + untaxableIncome
   );
-  const [semiMonthlySavings, monthlySavings, annualSavings] = GetTimePeriods(
+  const [semiMonthlySavings, monthlySavings, annualSavings] = getTimePeriods(
     annualIncome * saveRate / 100
   );
-  const [semiMonthlyExpenses, monthlyExpenses, annualExpenses] = GetTimePeriods(
+  const [semiMonthlyExpenses, monthlyExpenses, annualExpenses] = getTimePeriods(
     totalExpenses
   );
-  const [semiMonthlyRemainder, monthlyRemainder, annualRemainder] = GetTimePeriods(
+  const [semiMonthlyRemainder, monthlyRemainder, annualRemainder] = getTimePeriods(
     annualIncome - annualSavings - annualExpenses
   );
 
@@ -143,7 +143,7 @@ const BudgetDetails: React.FC<BudgetDetailsProps> = ({ incomes, expenses }) => {
         </tbody>
       </Table>
     </Fragment>
-  )
-}
+  );
+};
 
 export default BudgetDetails;

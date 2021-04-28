@@ -1,8 +1,8 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
 import { BrowserRouter } from "react-router-dom";
-import { useState } from "react";
+import { Container } from "react-bootstrap";
+import React, { useState } from "react";
 
 import AppRouter from "./AppRouter";
 import NavBar from "./components/NavBar/NavBar";
@@ -22,7 +22,7 @@ function App() {
    */
   const updateUser = (user: User | null) => {
     setUser(user);
-  }
+  };
 
   return (
     <div className="App">

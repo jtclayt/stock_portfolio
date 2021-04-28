@@ -24,6 +24,8 @@ services:
       dockerfile: ../dockerfiles/app.dockerfile
     ports:
       - '3000:3000'
+    env_file:
+      - ./env/app.env
     volumes:
       - ./app:/app
       - /app/node_modules

@@ -1,5 +1,6 @@
 import UserData from "../types/UserData.type";
 
+/** User model from api. */
 class User {
   username: string;
   firstName: string;

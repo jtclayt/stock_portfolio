@@ -58,6 +58,6 @@ const LoginForm : React.FC<LoginFormProps> = ({ handleLogin }) => {
       </Row>
     </Form>
   );
-}
+};
 
 export default LoginForm;

@@ -25,7 +25,7 @@ const RegisterForm : React.FC<RegisterFormProps> = ({ handleRegister }) => {
    */
   const updatePassword = (event: any) => {
     setPassword(event.currentTarget.value);
-  }
+  };
 
   /**
    * Update the confirm password for validation.
@@ -33,7 +33,7 @@ const RegisterForm : React.FC<RegisterFormProps> = ({ handleRegister }) => {
    */
   const updateConfirm = (event: any) => {
     setConfirm(event.currentTarget.value);
-  }
+  };
 
   /**
    * Handle submitting the registration form.
@@ -54,7 +54,7 @@ const RegisterForm : React.FC<RegisterFormProps> = ({ handleRegister }) => {
     setConfirm("");
 
     handleRegister(data);
-  }
+  };
 
   return (
     <Form className="col-md-8 mx-auto mb-5" onSubmit={ handleSubmit }>
@@ -126,6 +126,6 @@ const RegisterForm : React.FC<RegisterFormProps> = ({ handleRegister }) => {
       </Row>
     </Form>
   );
-}
+};
 
 export default RegisterForm;

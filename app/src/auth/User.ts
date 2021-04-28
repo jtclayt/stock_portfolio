@@ -12,7 +12,7 @@ export const getUserSession = (): User | null => {
     return new User(JSON.parse(user) as UserData);
   }
   return null;
-}
+};
 
 /**
  * Store new user data in session when a user logs in.
@@ -20,4 +20,4 @@ export const getUserSession = (): User | null => {
  */
 export const setUserSession = (user: UserData): void => {
   sessionStorage.setItem("user", JSON.stringify(user));
-}
+};

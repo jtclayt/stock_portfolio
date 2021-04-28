@@ -1,6 +1,6 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
-import axios from "axios";
 
 import BudgetDetails from "./BudgetDetails";
 import Income from "../../models/Income.model";
@@ -45,7 +45,7 @@ const BudgetPage : React.FC = () => {
    */
   const addIncome = (newIncome: Income) => {
     setIncomes([...incomes, newIncome]);
-  }
+  };
 
   /**
    * Remove an income by its ID.
@@ -53,7 +53,7 @@ const BudgetPage : React.FC = () => {
    */
   const removeIncomeById = (id: number) => {
     setIncomes(incomes.filter(income => income.id !== id));
-  }
+  };
 
   /**
    * Add an Expense to the expenses list.
@@ -61,7 +61,7 @@ const BudgetPage : React.FC = () => {
    */
   const addExpense = (newExpense: Expense) => {
     setExpenses([...expenses, newExpense]);
-  }
+  };
 
   /**
    * Remove an expense by its ID.
@@ -69,7 +69,7 @@ const BudgetPage : React.FC = () => {
    */
   const removeExpenseById = (id: number) => {
     setExpenses(expenses.filter(income => income.id !== id));
-  }
+  };
 
   return (
     <Tabs defaultActiveKey="budget">
@@ -82,10 +82,12 @@ const BudgetPage : React.FC = () => {
       </Tab>
       <Tab eventKey="expenses" title="Expenses">
         <ExpenseForm addExpense={ addExpense } />
-        <ExpenseList expenses={ expenses } removeExpenseById={ removeExpenseById } />
+        <ExpenseList
+          expenses={ expenses }
+          removeExpenseById={ removeExpenseById } />
       </Tab>
     </Tabs>
   );
-}
+};
 
 export default BudgetPage;

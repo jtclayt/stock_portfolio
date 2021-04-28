@@ -23,7 +23,7 @@ const IncomeList : React.FC<IncomeListProps> = ({ incomes, removeIncomeById }) =
     axios.delete(income.url)
       .then(() => removeIncomeById(income.id))
       .catch(err => console.log(err));
-  }
+  };
 
   return (
     <Fragment>
@@ -60,6 +60,6 @@ const IncomeList : React.FC<IncomeListProps> = ({ incomes, removeIncomeById }) =
       </Table>
     </Fragment>
   );
-}
+};
 
 export default IncomeList;

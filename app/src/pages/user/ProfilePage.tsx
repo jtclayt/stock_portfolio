@@ -8,6 +8,6 @@ const LoginPage : React.FC = () => {
       </header>
     </Fragment>
   );
-}
+};
 
 export default LoginPage;

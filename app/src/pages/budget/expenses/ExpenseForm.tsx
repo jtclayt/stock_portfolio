@@ -20,7 +20,7 @@ const ExpenseForm : React.FC<ExpenseFormProps> = ({ addExpense }) => {
    * Submit the data from the form for a new expense.
    * @param event Submit event from expense form.
    */
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>)  => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const data = {
@@ -36,7 +36,7 @@ const ExpenseForm : React.FC<ExpenseFormProps> = ({ addExpense }) => {
         addExpense(new Expense(res.data as ExpenseData));
       })
       .catch(err => console.log(err));
-  }
+  };
 
   return (
     <Form className="col-md-8 mx-auto mb-5" onSubmit={handleSubmit}>
@@ -86,6 +86,6 @@ const ExpenseForm : React.FC<ExpenseFormProps> = ({ addExpense }) => {
       </Row>
     </Form>
   );
-}
+};
 
 export default ExpenseForm;

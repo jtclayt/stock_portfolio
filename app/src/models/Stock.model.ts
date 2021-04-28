@@ -1,5 +1,6 @@
 import StockData from "../types/StockData.type";
 
+/** Stock model stored in API. */
 class Stock {
   id: number;
   url: string;

@@ -49,7 +49,7 @@ const LoginPage : React.FC<LoginPageProps> = ({ updateUser }) => {
       .catch(() => {
         setLoginError("Invalid login, please try again");
       });
-  }
+  };
 
   /**
    * Make a reauest to API to register a new user.
@@ -63,7 +63,7 @@ const LoginPage : React.FC<LoginPageProps> = ({ updateUser }) => {
       .catch(() => {
         setLoginError("Username is taken, please try a different one");
       });
-  }
+  };
 
   return (
     <Fragment>
@@ -86,6 +86,6 @@ const LoginPage : React.FC<LoginPageProps> = ({ updateUser }) => {
       </Tabs>
     </Fragment>
   );
-}
+};
 
 export default LoginPage;
