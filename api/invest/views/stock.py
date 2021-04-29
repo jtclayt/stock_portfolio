@@ -1,11 +1,8 @@
-from rest_framework import viewsets
-
+from shared.views.base import BaseViewSet
 from ..models.stock import Stock
 from ..serializers.stock import StockSerializer
 
-class StockViewSet(viewsets.ModelViewSet):
+class StockViewSet(BaseViewSet):
     '''Default viewsets for stocks'''
+    queryset = Stock.objects.all()
     serializer_class = StockSerializer
-
-    def get_queryset(self):
-        return Stock.objects.all()

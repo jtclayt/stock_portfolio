@@ -1,4 +1,3 @@
-from budget.serializers.budget import BudgetSerializer
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
@@ -7,7 +6,6 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 from ..models.budget import Budget
-from ..serializers.budget import BudgetSerializer
 
 BUDGET_URL = reverse('budget:budget-list')
 
@@ -38,9 +36,7 @@ class PrivateBudgetTests(TestCase):
     '''Test authenticated budget API'''
     def setUp(self):
         self.client = APIClient()
-        self.user = get_user_model().objects.create_user(
-            {'username': 'test', 'password': 'test'}
-        )
+        self.user = get_user_model().objects.create_user('testuser', 'test')
         self.client.force_authenticate(self.user)
 
     def test_get_budget(self):

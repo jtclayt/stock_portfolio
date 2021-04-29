@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
+
 from ..models.stock import Stock
 from ..models.transaction import Transaction
 
@@ -13,7 +15,20 @@ class StockSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Stock
         fields = (
-            'id', 'url', 'symbol', 'company', 'created_at',
-            'updated_at', 'transactions'
+            'id', 'url', 'symbol', 'name', 'created_at',
+            'updated_at', 'transactions', 'user_id'
         )
         read_only_fields = ('id',)
+
+    def create(self, validated_data):
+        '''Custom create to uppercase stock symbol'''
+        validated_data['symbol'] = validated_data['symbol'].upper()
+        return super().create(validated_data)
+
+    def validate(self, data, ):
+        '''Custom validate to ensure a user can only have one of each valid symbol'''
+        user = self.context['request'].user
+
+        if len(Stock.objects.filter(user=user, symbol=data['symbol'].upper())) == 0:
+            return super().validate(data)
+        raise serializers.ValidationError('User can not have duplicate stocks')
