@@ -6,14 +6,18 @@ import GetResponse from "../../types/GetResponse.type";
 import { getAuthHeaders } from "../../auth/AuthToken";
 import Stock from "../../models/Stock.model";
 import StockData from "../../types/StockData.type";
+import StockDetail from "./StockDetail";
 import StockForm from "./StockForm";
 import StockList from "./StockList";
 import TDAClient from "../../clients/TDAClient";
+import { useHistory } from "react-router";
 
 const StocksPage : React.FC = () => {
   const STOCKS_BASE_URL = `${API_URL}/invest/stocks/`;
-  const [stocks, setStocks] = useState<Stock[]>([]);
   const tdClient = new TDAClient();
+  const history = useHistory();
+  const [stocks, setStocks] = useState<Stock[]>([]);
+  const [selectedStock, setSelectedStock] = useState<Stock>();
 
   useEffect(() => {
     axios.get(STOCKS_BASE_URL, getAuthHeaders())
@@ -21,7 +25,7 @@ const StocksPage : React.FC = () => {
         // For each stock retrieved pull up last market quote
         Promise.all(res.data.results.map(async (data: StockData) => {
           const newStock = new Stock(data);
-          newStock.currentPrice = await tdClient.getQuoteAsync(newStock.symbol);
+          newStock.setPrice(await tdClient.getQuoteAsync(newStock.symbol));
           return newStock;
         })).then(stocksWithPrice => {
           setStocks(stocksWithPrice);
@@ -34,7 +38,7 @@ const StocksPage : React.FC = () => {
    * @param newStock - The new stock to add.
    */
   const addStock = async (newStock: Stock) => {
-    newStock.currentPrice = await tdClient.getQuoteAsync(newStock.symbol);
+    newStock.setPrice(await tdClient.getQuoteAsync(newStock.symbol));
     setStocks([...stocks, newStock]);
   };
 
@@ -46,13 +50,30 @@ const StocksPage : React.FC = () => {
     setStocks(stocks.filter(stock => stock.id !== id));
   };
 
+  /**
+   * Select a stock to go to detailed view for.
+   * @param stock - The selected stock.
+   */
+  const goToStockDetail = (stock: Stock) => {
+    setSelectedStock(stock);
+    history.push(`/stocks/${stock.id}`);
+  };
+
   return (
     <Fragment>
       <header>
         <h1>Your Stock Holdings</h1>
       </header>
-      <StockForm addStock={ addStock } tdClient={ tdClient } />
-      <StockList stocks={ stocks } removeStockById={ removeStockById } />
+      { (!selectedStock)
+        ? <Fragment>
+            <StockForm addStock={ addStock } tdClient={ tdClient } />
+            <StockList
+              stocks={ stocks }
+              removeStockById={ removeStockById }
+              goToStockDetail={ goToStockDetail }/>
+          </Fragment>
+        : <StockDetail stock={ selectedStock } />
+      }
     </Fragment>
   );
 };

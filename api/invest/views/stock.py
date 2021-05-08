@@ -6,3 +6,7 @@ class StockViewSet(BaseViewSet):
     '''Default viewsets for stocks'''
     queryset = Stock.objects.all()
     serializer_class = StockSerializer
+
+    def post(self, request):
+        print(request)
+        return super().post(request)

@@ -20,7 +20,7 @@ to buy in each stock to meet distribution
 2. Will need docker and docker-compose installed
 3. Rename files in env folder to just api.env, app.env, and mysql.env, feel free to add
 your own passwords, secret keys, etc
-4. Run in terminal: docker-compose up
+4. Run in terminal: docker-compose up app (If this errors may need to try a second time)
 5. React app will be on http://localhost:3000 and Django api will be on
 http://localhost:8000
 
@@ -33,3 +33,4 @@ http://localhost:8000
 
 ### Other other stuff
 - I update this only intermittenly.
+- There is no logical order to what I work on. I'm just here to have fun.

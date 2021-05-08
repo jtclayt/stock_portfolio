@@ -8,13 +8,14 @@ import Stock from "../../models/Stock.model";
 interface StockListProps {
   stocks: Stock[];
   removeStockById: (id: number) => void;
+  goToStockDetail: (stock: Stock) => void;
 }
 
 /**
  * Render the list of stocks for a given user.
  * @returns Component for displaying stock list.
  */
-const StockList : React.FC<StockListProps> = ({ stocks, removeStockById }) => {
+const StockList : React.FC<StockListProps> = ({ stocks, removeStockById, goToStockDetail }) => {
   /**
    * Delete an stock from the list.
    * @param stock The stock to be deleted.
@@ -50,6 +51,9 @@ const StockList : React.FC<StockListProps> = ({ stocks, removeStockById }) => {
                   <td>${ stock.averagePrice.toFixed(2) }</td>
                   <td>${ stock.currentPrice.toFixed(2) }</td>
                   <td>
+                    <Button variant="primary" onClick={() => goToStockDetail(stock)}>
+                      View
+                    </Button>
                     <Button variant="danger" onClick={() => handleDelete(stock)}>
                       Delete
                     </Button>

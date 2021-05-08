@@ -20,16 +20,10 @@ class User {
    * @returns String for identifying user.
    */
   displayName(): string {
-    if (this.firstName || this.lastName) {
-      let name = "";
-      if (this.firstName) {
-        name += this.firstName + " ";
-      }
-      if (this.lastName) {
-        name += this.lastName;
-      }
-
-      return name;
+    if (this.firstName) {
+      return this.firstName;
+    } else if (this.lastName) {
+      return this.lastName;
     }
     return this.username;
   }

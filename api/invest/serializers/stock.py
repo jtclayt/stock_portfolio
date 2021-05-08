@@ -15,7 +15,8 @@ class StockSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Stock
         fields = (
-            'id', 'url', 'symbol', 'name', 'created_at',
+            'id', 'url', 'symbol', 'name', 'shares', 'dividend_shares',
+            'dividends_paid', 'avg_price', 'avg_years_held', 'created_at',
             'updated_at', 'transactions', 'user_id'
         )
         read_only_fields = ('id',)
@@ -25,7 +26,7 @@ class StockSerializer(serializers.HyperlinkedModelSerializer):
         validated_data['symbol'] = validated_data['symbol'].upper()
         return super().create(validated_data)
 
-    def validate(self, data, ):
+    def validate(self, data):
         '''Custom validate to ensure a user can only have one of each valid symbol'''
         user = self.context['request'].user
 
