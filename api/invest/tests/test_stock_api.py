@@ -6,7 +6,6 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 from ..models.stock import Stock
-from ..serializers.stock import StockSerializer
 
 STOCK_URL = reverse('invest:stock-list')
 

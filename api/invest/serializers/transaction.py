@@ -13,6 +13,7 @@ class TransactionSerializer(serializers.Serializer):
         model = Transaction
         fields = (
             'id', 'stock', 'shares_traded', 'trade_price', 'is_buy',
-            'trade_date', 'created_at', 'updated_at'
+            'is_dividend', 'trade_date', 'created_at', 'updated_at', 'user_id',
+            'stock'
         )
         read_only_fields = ('id',)

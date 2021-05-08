@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from rest_framework.validators import UniqueValidator
 
 from ..models.stock import Stock
 from ..models.transaction import Transaction
