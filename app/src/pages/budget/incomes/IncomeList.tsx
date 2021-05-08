@@ -16,7 +16,7 @@ interface IncomeListProps {
  */
 const IncomeList : React.FC<IncomeListProps> = ({ incomes, removeIncomeById }) => {
   /**
-   * Delete an expense from the list.
+   * Delete an income from the list.
    * @param income The income to be deleted.
    */
   const handleDelete = (income: Income) => {

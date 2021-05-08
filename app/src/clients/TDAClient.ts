@@ -11,7 +11,7 @@ import TDQuoteData from "../types/TDA/TDQuoteData";
  * That key then needs to be provided in app.env for the docker container.
  */
 class TDAClient {
-  apikey: string;
+  private apikey: string;
 
   /** Class constructor */
   constructor() {
@@ -40,6 +40,26 @@ class TDAClient {
             resolve((res.data[symbol] as TDQuoteData).lastPrice);
           }
           resolve(0);
+        });
+    });
+  }
+
+  /**
+   * Method for getting a name for symbol.
+   * @param {string} symbol The symbol to get a quote for.
+   * @return {Promise<string>} Latest price available.
+   */
+   async getNameAsync(symbol: string): Promise<string> {
+    symbol = symbol.toUpperCase();
+    const url = `${TD_MARKET_DATA_URL}/${symbol}/quotes?apikey=${this.apikey}`;
+
+    return new Promise<string>(resolve => {
+      axios.get(url)
+        .then(res => {
+          if (symbol in res.data) {
+            resolve((res.data[symbol] as TDQuoteData).description);
+          }
+          resolve("");
         });
     });
   }

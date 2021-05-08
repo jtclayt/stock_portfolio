@@ -2,12 +2,14 @@ import UserData from "../types/UserData.type";
 
 /** User model from api. */
 class User {
+  id: number;
   username: string;
   firstName: string;
   lastName: string;
 
   /** Class constructor */
   constructor(userData: UserData) {
+    this.id = userData.id;
     this.username = userData.username;
     this.firstName = userData.first_name;
     this.lastName = userData.last_name;
