@@ -1,7 +1,10 @@
 version: "3.8"
 
 services:
-  # App container configurations
+  ### App container configurations ###
+
+  # Use to spin up api container
+  # Use: docker-compose up api
   api:
     build:
       context: ./api
@@ -17,6 +20,8 @@ services:
             python manage.py migrate &&
             python manage.py runserver 0.0.0.0:8000"
 
+  # Use to spin up app container
+  # Use: docker-compose up app
   app:
     build:
       context: ./app
@@ -31,7 +36,11 @@ services:
     stdin_open: true
     tty: true
 
-  # Utility containers
+
+  ### Utility containers ###
+
+  # Use for running npm commands in UI code volume
+  # Use: docker-compose run --rm npm "command"
   npm:
     build:
       context: ./app
@@ -41,6 +50,8 @@ services:
       - /app/node_modules
     entrypoint: [ "npm" ]
 
+  # Use for running django commands in API code volume
+  # Use: docker-compose run --rm django "command"
   django:
     build:
       context: ./api
@@ -52,6 +63,7 @@ services:
     entrypoint: [ "python", "manage.py" ]
 
   # Use for running django unit tests with sqlite db
+  # Use: docker-compose run --rm django-test
   django-test:
     build:
       context: ./api
