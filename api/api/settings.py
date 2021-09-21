@@ -83,17 +83,15 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mssql',
         'NAME': os.environ['DB_NAME'],
         'USER': os.environ['DB_USER'],
         'PASSWORD': os.environ['DB_PASSWORD'],
         'HOST': os.environ['DB_HOST'],
-        'PORT': 3306,
+        'PORT': 1433,
         'OPTIONS': {
-            'ssl': { 'ca': '/app/certs/DigiCertGlobalRootCA.crt.pem' }
-        },
-        'TEST': {
-            'NAME': 'test'
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'host_is_server': True
         }
     }
 }

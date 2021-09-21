@@ -30,13 +30,13 @@ services:
     stdin_open: true
     tty: true
 
-  mysql:
-    build:
-      context: ./
-      dockerfile: dockerfiles/mysql.dockerfile
-    env_file:
-      - ./env/mysql.env
-    command: --default-authentication-plugin=mysql_native_password
+  # mysql:
+  #   build:
+  #     context: ./
+  #     dockerfile: dockerfiles/mysql.dockerfile
+  #   env_file:
+  #     - ./env/mysql.env
+  #   command: --default-authentication-plugin=mysql_native_password
 
   npm:
     build:
@@ -65,6 +65,4 @@ services:
       - ./env/test-api.env
     volumes:
       - ./api:/app
-    depends_on:
-      - mysql
-    entrypoint: [ "python", "manage.py", "test" ]
+    entrypoint: [ "python", "manage.py", "test", "--settings", "api.test_settings" ]
