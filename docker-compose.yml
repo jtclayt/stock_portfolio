@@ -11,8 +11,6 @@ services:
       - ./env/api.env
     volumes:
       - ./api:/app
-    depends_on:
-      - mysql
     command: >
       sh -c "python manage.py wait_for_db &&
             python manage.py migrate &&
@@ -29,9 +27,6 @@ services:
     volumes:
       - ./app:/app
       - /app/node_modules
-    depends_on:
-      - mysql
-      - api
     stdin_open: true
     tty: true
 
@@ -61,3 +56,15 @@ services:
     volumes:
       - ./api:/app
     entrypoint: [ "python", "manage.py" ]
+
+  django-test:
+    build:
+      context: ./api
+      dockerfile: ../dockerfiles/api.dockerfile
+    env_file:
+      - ./env/test-api.env
+    volumes:
+      - ./api:/app
+    depends_on:
+      - mysql
+    entrypoint: [ "python", "manage.py", "test" ]

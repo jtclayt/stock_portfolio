@@ -89,8 +89,11 @@ DATABASES = {
         'PASSWORD': os.environ['DB_PASSWORD'],
         'HOST': os.environ['DB_HOST'],
         'PORT': 3306,
+        'OPTIONS': {
+            'ssl': { 'ca': '/app/certs/DigiCertGlobalRootCA.crt.pem' }
+        },
         'TEST': {
-            'NAME': 'test_stocks'
+            'NAME': 'test'
         }
     }
 }
