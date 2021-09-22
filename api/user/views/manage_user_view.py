@@ -1,5 +1,5 @@
 from rest_framework import generics, authentication, permissions
-from ..serializers.user import UserSerializer
+from ..serializers.user_serializer import UserSerializer
 
 
 class ManageUserView(generics.RetrieveUpdateAPIView):

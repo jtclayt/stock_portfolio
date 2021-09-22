@@ -1,7 +1,7 @@
 from django.urls import path
-from .views.create_user import CreateUserView
-from .views.create_token import CreateTokenView
-from .views.manage_user import ManageUserView
+from .views.create_user_view import CreateUserView
+from .views.create_token_view import CreateTokenView
+from .views.manage_user_view import ManageUserView
 
 app_name='user'
 

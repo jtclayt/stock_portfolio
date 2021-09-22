@@ -1,6 +1,6 @@
-from shared.views.base import BaseViewSet
+from shared.views.base_view_set import BaseViewSet
 from ..models.transaction import Transaction
-from ..serializers.transaction import TransactionSerializer
+from ..serializers.transaction_serializer import TransactionSerializer
 
 class TransactionViewSet(BaseViewSet):
     queryset = Transaction.objects.all()

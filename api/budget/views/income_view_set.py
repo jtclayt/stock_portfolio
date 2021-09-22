@@ -1,7 +1,7 @@
-from shared.views.base import BaseViewSet
+from shared.views.base_view_set import BaseViewSet
 
 from ..models.income import Income
-from ..serializers.income import IncomeSerializer
+from ..serializers.income_serializer import IncomeSerializer
 
 class IncomeViewSet(BaseViewSet):
     '''Default viewsets for stocks'''

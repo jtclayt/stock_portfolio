@@ -1,9 +1,9 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from .views.budget import BudgetViewSet
-from .views.income import IncomeViewSet
-from .views.expense import ExpenseViewSet
+from .views.budget_view_set import BudgetViewSet
+from .views.income_view_set import IncomeViewSet
+from .views.expense_view_set import ExpenseViewSet
 
 router = DefaultRouter()
 router.register('budgets', BudgetViewSet, basename='budget')

@@ -1,7 +1,7 @@
-from shared.views.base import BaseViewSet
+from shared.views.base_view_set import BaseViewSet
 
 from ..models.budget import Budget
-from ..serializers.budget import BudgetSerializer
+from ..serializers.budget_serializer import BudgetSerializer
 
 class BudgetViewSet(BaseViewSet):
     '''Default viewsets for budgets'''

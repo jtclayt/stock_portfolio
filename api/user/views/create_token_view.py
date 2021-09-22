@@ -1,7 +1,7 @@
 from django.test.signals import clear_serializers_cache
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
-from ..serializers.token import AuthTokenSerializer
+from ..serializers.auth_token_serializer import AuthTokenSerializer
 
 
 class CreateTokenView(ObtainAuthToken):
